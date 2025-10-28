@@ -17,3 +17,7 @@ Spots is an image sharing website where users can upload various images under th
 This website is deployed to github pages
 
 [Deployment link](https://leonnurse88-eng.github.io/se_project_spots/)
+
+## Project Pitch
+
+check out [this video](https://drive.google.com/file/d/18iT3ip7x0UugA3t2BZMt9BJMHCX_T0a3/view?usp=drive_link)where I describe my project and challenges I faced while building it.
