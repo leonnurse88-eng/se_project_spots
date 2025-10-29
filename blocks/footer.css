@@ -1,3 +1,8 @@
+.footer {
+  height: 16px;
+  width: 105px;
+  margin-left: 668px;
+}
 .footer__content {
   display: flex;
   justify-content: center;
@@ -10,4 +15,6 @@
   font-size: 16px;
   line-height: 100%;
   font-weight: 400;
+  letter-spacing: 0%;
+  font-style: normal;
 }
