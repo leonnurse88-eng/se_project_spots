@@ -43,6 +43,7 @@
 }
 
 .profile__edit-btn {
+  padding: 0;
   align-items: center;
   display: flex;
   margin-top: auto;
@@ -63,6 +64,7 @@
 }
 
 .profile__add-btn {
+  border: none;
   display: flex;
   margin-left: auto;
   background-color: #212121;
