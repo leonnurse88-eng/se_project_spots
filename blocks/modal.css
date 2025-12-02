@@ -9,13 +9,13 @@
   right: 0;
   justify-content: center;
   align-items: center;
-  transition: opacity 1s linear;
-  opacity: 0;
+  transition: opacity 0.3s ease visibility 0s linear 0.3s;
 }
 
 .modal_is-opened {
   visibility: visible;
   opacity: 1;
+  transition: opacity 0.3s ease visibility 0s linear 0s;
 }
 
 .modal__container {
@@ -37,17 +37,17 @@
   top: 32px;
   right: 50px;
   background-image: url(../images/close-icon.svg);
-  transition: opacity 1s linear;
+  border: none;
+  background-color: transparent;
 }
 
 .modal__close-btn:hover {
   cursor: pointer;
+  opacity: 1;
 }
 
 .modal__title {
   margin: 0 0 32px;
-  height: 32px;
-  width: 169px;
   font-size: 32px;
   font-weight: 500;
   line-height: 100%;
@@ -70,6 +70,11 @@
   line-height: 100%;
 }
 
+.modal__submit-btn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
 .modal__input {
   display: block;
   margin: 8px 0 0;
@@ -77,7 +82,7 @@
   padding: 16px 12px;
   border-radius: 8px;
   border: 1px rgba(33, 33, 33, 0.4) solid;
-  gap: 10px;
+  box-sizing: border-box;
 }
 
 .modal__input:hover {
@@ -95,7 +100,7 @@
   font-size: 20px;
   line-height: 100%;
   font-weight: 500;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 }
 
 @media screen and (max-width: 627px) {
