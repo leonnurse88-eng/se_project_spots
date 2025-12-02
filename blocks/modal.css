@@ -9,10 +9,13 @@
   right: 0;
   justify-content: center;
   align-items: center;
+  transition: opacity 1s linear;
+  opacity: 0;
 }
 
 .modal_is-opened {
   visibility: visible;
+  opacity: 1;
 }
 
 .modal__container {
@@ -34,6 +37,7 @@
   top: 32px;
   right: 50px;
   background-image: url(../images/close-icon.svg);
+  transition: opacity 1s linear;
 }
 
 .modal__close-btn:hover {
