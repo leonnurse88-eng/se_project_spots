@@ -1,5 +1,6 @@
 .card {
   max-width: 413px;
+  position: relative;
 }
 
 .card__image {
@@ -42,8 +43,25 @@
   background-size: contain;
 }
 
+.card__like-button_active {
+  background-image: url(../images/Liked-active.svg);
+  opacity: 1;
+}
+
+.card__delete-button {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 10px;
+  background-image: url(../images/Delete.svg);
+}
+
 .card__like-button:hover {
   opacity: 0.8;
+}
+
+.card__like-button_active:hover {
+  opacity: 0.4;
 }
 
 @media screen and (max-width: 627px) {
