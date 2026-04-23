@@ -114,16 +114,13 @@
   letter-spacing: 0;
 }
 
-.modal__container {
-  position: relative;
-}
-
 .modal__image {
   max-width: 80vw;
   max-height: 80vh;
   width: 100%;
   object-fit: contain;
   display: block;
+  border-radius: 8px;
 }
 
 .modal__caption {

@@ -22,7 +22,7 @@
           <section class="profile page__section">
             <img
               src="./images/avatar.jpg"
-              alt="avatar image"
+              alt="coleman avatar"
               class="profile__avatar"
             />
             <div class="profile__column">
@@ -58,20 +58,34 @@
         </footer>
       </div>
       <div class="modal" id="new-post-modal">
-        <div class="modal__container">
-          <button type="button" class="modal__close-btn"></button>
-          <h2 class="modal__title">New Post</h2>
-          <form class="modal__form">
-            <label for="new-post-link-input" class="modal__label"
-              >Image link<input
-                id="new-post-link-input"
-                type="text"
-                class="modal__input"
-                />
-                </label>
-                </form>
-      </div>
-      </div>
+  <div class="modal__container">
+    <button type="button" class="modal__close-btn"></button>
+    <h2 class="modal__title">New Post</h2>
+    <form class="modal__form">
+      <label for="new-post-link-input" class="modal__label">
+        Image link
+        <input
+          id="new-post-link-input"
+          type="text"
+          class="modal__input"
+          placeholder="Paste a link to the picture"
+          required
+        />
+      </label>
+      <label for="new-post-caption-input" class="modal__label">
+        Caption
+        <input
+          id="new-post-caption-input"
+          type="text"
+          class="modal__input"
+          placeholder="Enter a caption"
+          required
+        />
+      </label>
+      <button type="submit" class="modal__submit-btn">SAVE</button>
+    </form>
+  </div>
+</div>
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn"></button>
@@ -96,25 +110,10 @@
           </form>
         </div>
       </div>
-          placeholder="Paste a link to the picture"
-              />
-            </label>
-            <label for="new-post-caption-input" class="modal__label"
-              >Caption<input
-                id="new-post-caption-input"
-                type="text"
-                class="modal__input"
-                placeholder="type your caption"
-            /></label>
-            <button type="submit" class="modal__submit-btn">SAVE</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="modal modal_is-opened" id="preview-modal">
+    <div class="modal" id="preview-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close-btn"></button>
-          <img src=""https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg alt="" class="modal__image">
+          <button type="button" class="modal__close-btn modal__close-btn_type_preview"></button>
+          <img src="https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg alt=" class="modal__image">
           <p class="modal__caption">Golden Gate Bridge</p>
         </div>
       </div>
