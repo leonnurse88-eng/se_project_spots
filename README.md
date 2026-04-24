@@ -1,16 +1,17 @@
-# Project 3: Spots
+# Project 5: Spots
 
 An Image sharing interactive website
 
 ## Description
 
-Spots is an image sharing website where users can upload various images under their designated profiles. Users are also able to comment images that are posted to the website.
+Spots is an image sharing website where users can upload various images under their designated profiles. Users are also able to like and delete images as needed.
 
 ## Tech Stack
 
 -HTML
 -CSS
 -Responsive Design
+-Java Script/BEM
 
 ## Deployment
 
