@@ -21,4 +21,4 @@ This website is deployed to github pages
 
 ## Project Pitch
 
-check out [this video](https://drive.google.com/file/d/18iT3ip7x0UugA3t2BZMt9BJMHCX_T0a3/view?usp=drive_link)where I describe my project and challenges I faced while building it.
+check out [this video](https://www.loom.com/share/69d51e432d814b929d1edf2d7bebd662)where I describe my project and challenges I faced while building it.
