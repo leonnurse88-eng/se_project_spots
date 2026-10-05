@@ -8,23 +8,23 @@ const settings = {
 };
 
 const hideInputError = (formEl, inputEl) => {
-  const errorMsgEl = formEl.querySelector(`#${inputEl.id} + .error-msg`);
+  const errorMsgEl = formEl.querySelector(`#${inputEl.id} -error`);
 
   if (errorMsgEl) {
     errorMsgEl.textContent = "";
   }
 
-  inputEl.classList.remove("modal__input_type_error");
+  inputEl.classList.remove("config.inputErrorClass");
 };
 
 const showInputError = (formEl, inputEl, errorMsg) => {
-  const errorMsgEl = formEl.querySelector(`#${inputEl.id} + .error-msg`);
+  const errorMsgEl = formEl.querySelector(`#${inputEl.id} -error`);
 
   if (errorMsgEl) {
     errorMsgEl.textContent = errorMsg;
   }
 
-  inputEl.classList.add("modal__input_type_error");
+  inputEl.classList.add("config.inputErrorClass");
 };
 
 function checkInputValidity(formEl, inputEl) {
@@ -44,12 +44,16 @@ const toggleButtonState = (inputList, buttonElement) => {
     return;
   }
 
-  buttonElement.disabled = hasInvalidInput(inputList);
+  if (hasInvalidInput(inputList)) {
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.disabled = false;
+  }
 };
 
 const setEventListener = (formEl) => {
-  const inputList = Array.from(formEl.querySelectorAll(".modal__input"));
-  const buttonElement = formEl.querySelector(".modal__button");
+  const inputList = Array.from(formEl.querySelectorAll("config.inputSelector"));
+  const buttonElement = formEl.querySelector("config.submitButtonSelector");
 
   toggleButtonState(inputList, buttonElement);
 

@@ -53,7 +53,7 @@ const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 
 const newPostCardForm = newPostModal.querySelector(".modal__form");
 
-const newPostCardButton = newPostModal.querySelector(".modal__button");
+const newPostCardButton = newPostModal.querySelector(".modal__submit-btn");
 
 const newPostLinkInput = newPostModal.querySelector("#new-post-link-input");
 
@@ -117,6 +117,75 @@ function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
 
+let currentModal = null;
+
+function onDocumentKeydown(evt) {
+  if (evt.key === "Escape" && currentModal) {
+    closeModal(currentModal);
+  }
+}
+
+function onModalClick(evt) {
+  const target = evt.target;
+
+  if (target.classList.contains("modal")) {
+    closeModal(currentModal);
+    return;
+  }
+
+  if (target.classList.contains("modal__close-btn")) {
+    closeModal(currentModal);
+  }
+}
+
+function openModal(modal) {
+  if (!modal) return;
+
+  currentModal = modal;
+  modal.classList.add("modal_is-opened");
+
+  document.addEventListener("keydown", onDocumentKeydown);
+  modal.addEventListener("mousedown", onModalClick);
+}
+
+function closeModal(modal) {
+  if (!modal) return;
+
+  modal.classList.remove("modal_is-opened");
+
+  document.removeEventListener("keydown", onDocumentKeydown);
+  modal.removeEventListener("mousedown", onModalClick);
+
+  currentModal = null;
+}
+
+function resetValidation(formEl, inputList, config = {}) {
+  const {
+    inputErrorClass = "form__input_type_error",
+    errorClass = "form__error_visible",
+  } = config;
+
+  inputList.forEach((inputEl) => {
+    inputEl.classList.remove(inputErrorClass);
+
+    const errorEl =
+      formEl?.querySelector(`#${inputEl.id}-error`) ||
+      formEl?.querySelector(`.${inputEl.name}-error`);
+
+    if (errorEl) {
+      errorEl.textContent = "";
+      errorEl.classList.remove(errorClass);
+    }
+  });
+}
+
+function disableButton(button) {
+  if (!button) return;
+
+  button.disabled = true;
+  button.classList.add("button_inactive");
+}
+
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
@@ -159,7 +228,7 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  disableButton(newPostCardButton);
+  disableButton(buttonEl, config);
 
   closeModal(newPostModal);
 }
