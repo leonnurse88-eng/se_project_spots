@@ -159,40 +159,14 @@ function closeModal(modal) {
   currentModal = null;
 }
 
-function resetValidation(formEl, inputList, config = {}) {
-  const {
-    inputErrorClass = "form__input_type_error",
-    errorClass = "form__error_visible",
-  } = config;
-
-  inputList.forEach((inputEl) => {
-    inputEl.classList.remove(inputErrorClass);
-
-    const errorEl =
-      formEl?.querySelector(`#${inputEl.id}-error`) ||
-      formEl?.querySelector(`.${inputEl.name}-error`);
-
-    if (errorEl) {
-      errorEl.textContent = "";
-      errorEl.classList.remove(errorClass);
-    }
-  });
-}
-
-function disableButton(button) {
-  if (!button) return;
-
-  button.disabled = true;
-  button.classList.add("button_inactive");
-}
-
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  resetValidation(editProfileForm, [
-    editProfileNameInput,
-    editProfileDescriptionInput,
-  ]);
+  resetValidation(
+    editProfileForm,
+    [editProfileNameInput, editProfileDescriptionInput],
+    settings,
+  );
   openModal(editProfileModal);
 });
 
@@ -228,7 +202,7 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  disableButton(buttonEl, config);
+  disableButton(evt.submitter, settings);
 
   closeModal(newPostModal);
 }

@@ -34,6 +34,11 @@
   position: relative;
 }
 
+.modal__container_type_preview {
+  padding: 0;
+  position: relative;
+}
+
 .modal__close-btn {
   height: 40px;
   width: 40px;
@@ -81,7 +86,7 @@
   border: none;
 }
 
-.modal__submit-btn-disabled {
+.modal__submit-btn_disabled {
   color: grey;
 }
 
