@@ -110,11 +110,24 @@ function getCardElement(data) {
 }
 
 function openModal(modal) {
+  if (!modal) return;
+
+  currentModal = modal;
   modal.classList.add("modal_is-opened");
+
+  document.addEventListener("keydown", onDocumentKeydown);
+  modal.addEventListener("mousedown", onModalClick);
 }
 
 function closeModal(modal) {
+  if (!modal) return;
+
   modal.classList.remove("modal_is-opened");
+
+  document.removeEventListener("keydown", onDocumentKeydown);
+  modal.removeEventListener("mousedown", onModalClick);
+
+  currentModal = null;
 }
 
 let currentModal = null;
@@ -138,27 +151,6 @@ function onModalClick(evt) {
   }
 }
 
-function openModal(modal) {
-  if (!modal) return;
-
-  currentModal = modal;
-  modal.classList.add("modal_is-opened");
-
-  document.addEventListener("keydown", onDocumentKeydown);
-  modal.addEventListener("mousedown", onModalClick);
-}
-
-function closeModal(modal) {
-  if (!modal) return;
-
-  modal.classList.remove("modal_is-opened");
-
-  document.removeEventListener("keydown", onDocumentKeydown);
-  modal.removeEventListener("mousedown", onModalClick);
-
-  currentModal = null;
-}
-
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
@@ -170,16 +162,8 @@ editProfileBtn.addEventListener("click", function () {
   openModal(editProfileModal);
 });
 
-editProfileCloseBtn.addEventListener("click", function () {
-  closeModal(editProfileModal);
-});
-
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
-});
-
-newPostCloseBtn.addEventListener("click", function () {
-  closeModal(newPostModal);
 });
 
 function handleEditProfileSubmit(evt) {
@@ -212,8 +196,4 @@ newPostCardForm.addEventListener("submit", handleAddCardSubmit);
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
-});
-
-previewCloseBtn.addEventListener("click", function () {
-  closeModal(previewModal);
 });
